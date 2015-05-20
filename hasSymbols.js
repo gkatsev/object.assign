@@ -6,7 +6,11 @@ module.exports = function hasSymbols() {
 
 	var obj = {};
 	var sym = Symbol('test');
+	/*
+ 	** This check is temporarily disabled,
+ 	** because the memory requirements of returning non-string keys in a Symbol polyfill are prohibitive.
 	if (typeof sym === 'string') { return false; }
+	*/
 	obj[sym] = 42;
 	for (var key in obj) { return false; }
 	if (keys(obj).length !== 0) { return false; }
